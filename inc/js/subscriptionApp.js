@@ -6,7 +6,8 @@ var firstSubscription = new app.singleSubscription({
 		zipcode : '1823BW',
 		street : 'Buitenpoort',
 		streetNumber : 16,
-		city : 'Alkmaar'
+		city : 'Alkmaar',
+		link : 'firstSubscription'
 	
 });
 
@@ -17,7 +18,8 @@ var secondSubscription = new app.singleSubscription({
 		zipcode : '1749HD',
 		street: 'Trogven',
 		streetNumber : 19,
-		city : 'Warmenhuizen'
+		city : 'Warmenhuizen',
+		link : 'secondSubscription'
 	
 });
 
@@ -28,7 +30,8 @@ var thirdSubscription = new app.singleSubscription({
 		secondName : 'Komen',
 		zipcode : '1749HB',
 		street : 'Kiebos',
-		streetNumber : 12
+		streetNumber : 12,
+		link : 'thirdSubscription'
 	
 });
 
@@ -37,9 +40,16 @@ var subscriptionGroup = new app.subscriptionCollection([
 ]);
 
 subscriptionGroup.add(thirdSubscription);
+// subscriptionGroup.remove(secondSubscription);
 
-// console.log(firstSubscription.toJSON());
-// console.log(secondSubscription.toJSON());
-// console.log(thirdSubscription.toJSON());
+// // console.log(firstSubscription.toJSON());
+// // console.log(secondSubscription.toJSON());
+// // console.log(thirdSubscription.toJSON());
 
-console.log(subscriptionGroup.toJSON());
+var subscriptionGroupView = new app.allSubscriptionsView({collection : subscriptionGroup});
+
+$("#allSubscriptions").html(subscriptionGroupView.render().el);
+
+var subscriptionRouter = new app.Router();
+
+Backbone.history.start(); 

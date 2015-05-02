@@ -1,0 +1,14 @@
+.bgColor{
+	background-color:#F0F5F5;
+}
+
+ul{
+	display: inline-block;
+	width:200px;
+}
+
+li{
+	list-style: none;
+	border-bottom:1px solid #CCC;
+	width:200px;
+}
